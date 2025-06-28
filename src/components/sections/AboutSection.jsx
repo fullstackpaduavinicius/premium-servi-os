@@ -3,17 +3,17 @@ import { FiCheckCircle, FiUsers, FiShield, FiAward, FiGlobe } from 'react-icons/
 const AboutSection = () => {
   const highlightCards = [
     {
-      image: 'src/assets/imagens/card3.jpeg',
+      image: 'src/assets/imagens/card3.png',
       title: 'Excelência Operacional',
       description: 'Entregamos resultados com alto padrão de qualidade e compromisso.',
     },
     {
-      image: 'src/assets/imagens/card2.jpeg',
+      image: 'src/assets/imagens/card2.png',
       title: 'Atuação Estratégica',
       description: 'Soluções pensadas para o seu segmento, com equipes capacitadas.',
     },
     {
-      image: 'src/assets/imagens/card1.jpeg',
+      image: 'src/assets/imagens/card1.png',
       title: 'Compromisso Sustentável',
       description: 'A sustentabilidade faz parte dos nossos processos e decisões.',
     },
