@@ -13,7 +13,7 @@ const AboutSection = () => {
       description: 'Soluções pensadas para o seu segmento, com equipes capacitadas.',
     },
     {
-      image: 'src/assets/imagens/card1.png',
+      image: 'src/assets/imagens/card1.jpg',
       title: 'Compromisso Sustentável',
       description: 'A sustentabilidade faz parte dos nossos processos e decisões.',
     },
