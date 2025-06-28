@@ -1,19 +1,24 @@
 import { FiCheckCircle, FiUsers, FiShield, FiAward, FiGlobe } from 'react-icons/fi';
 
+// ✅ Importação correta das imagens
+import card1Img from '../../assets/imagens/card1.jpg';
+import card2Img from '../../assets/imagens/card2.png';
+import card3Img from '../../assets/imagens/card3.png';
+
 const AboutSection = () => {
   const highlightCards = [
     {
-      image: 'src/assets/imagens/card3.png',
+      image: card3Img,
       title: 'Excelência Operacional',
       description: 'Entregamos resultados com alto padrão de qualidade e compromisso.',
     },
     {
-      image: 'src/assets/imagens/card2.png',
+      image: card2Img,
       title: 'Atuação Estratégica',
       description: 'Soluções pensadas para o seu segmento, com equipes capacitadas.',
     },
     {
-      image: 'src/assets/imagens/card1.jpg',
+      image: card1Img,
       title: 'Compromisso Sustentável',
       description: 'A sustentabilidade faz parte dos nossos processos e decisões.',
     },
