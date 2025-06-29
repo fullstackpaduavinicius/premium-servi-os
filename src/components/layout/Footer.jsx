@@ -1,38 +1,68 @@
+import {
+  FiPhone,
+  FiMail,
+  FiMapPin,
+  FiFacebook,
+  FiInstagram,
+  FiLinkedin,
+} from 'react-icons/fi';
+
 const Footer = () => {
   return (
-    <footer className="bg-secondary text-white py-8">
-      <div className="container mx-auto px-4">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          <div>
-            <h3 className="text-xl font-bold mb-4">Meu Site Institucional</h3>
-            <p className="text-highlight">
-              Soluções profissionais para sua empresa.
-            </p>
-          </div>
-          <div>
-            <h4 className="text-lg font-semibold mb-4">Links Rápidos</h4>
-            <ul className="space-y-2">
-              <li><a href="/" className="hover:text-primary transition-colors">Home</a></li>
-              <li><a href="/about" className="hover:text-primary transition-colors">Sobre</a></li>
-              <li><a href="/services" className="hover:text-primary transition-colors">Serviços</a></li>
-              <li><a href="/contact" className="hover:text-primary transition-colors">Contato</a></li>
-            </ul>
-          </div>
-          <div>
-            <h4 className="text-lg font-semibold mb-4">Contato</h4>
-            <address className="not-italic text-highlight">
-              <p>Email: contato@meusite.com</p>
-              <p>Telefone: (11) 1234-5678</p>
-              <p>Endereço: Rua Exemplo, 123 - São Paulo/SP</p>
-            </address>
-          </div>
+    <footer className="bg-gray-800 text-white pt-12 pb-6">
+      <div className="container mx-auto px-4 grid md:grid-cols-4 gap-8">
+
+        {/* Sobre a Empresa */}
+        <div>
+          <h4 className="text-lg font-semibold mb-4">Premium Serviços</h4>
+          <p className="text-sm text-gray-300">
+            Soluções completas em terceirização de mão de obra, limpeza, conservação, gestão de resíduos e construção civil.
+          </p>
         </div>
-        <div className="border-t border-highlight mt-8 pt-6 text-center text-highlight">
-          <p>&copy; {new Date().getFullYear()} Meu Site Institucional. Todos os direitos reservados.</p>
+
+        {/* Links Úteis */}
+        <div>
+          <h4 className="text-lg font-semibold mb-4">Links</h4>
+          <ul className="space-y-2 text-sm">
+            <li><a href="/" className="hover:underline text-gray-300">Home</a></li>
+            <li><a href="/grupo" className="hover:underline text-gray-300">O Grupo</a></li>
+            <li><a href="/negocios" className="hover:underline text-gray-300">Negócios</a></li>
+            <li><a href="/contato" className="hover:underline text-gray-300">Contato</a></li>
+          </ul>
+        </div>
+
+        {/* Contato */}
+        <div>
+          <h4 className="text-lg font-semibold mb-4">Contato</h4>
+          <ul className="space-y-3 text-sm text-gray-300">
+            <li className="flex items-center gap-2">
+              <FiPhone /> (79) 99999-9999
+            </li>
+            <li className="flex items-center gap-2">
+              <FiMail /> contato@premiumservicos.com.br
+            </li>
+            <li className="flex items-center gap-2">
+              <FiMapPin /> Aracaju - SE, Brasil
+            </li>
+          </ul>
+        </div>
+
+        {/* Redes Sociais */}
+        <div>
+          <h4 className="text-lg font-semibold mb-4">Siga-nos</h4>
+          <div className="flex space-x-4">
+            <a href="#" className="hover:text-primary"><FiFacebook size={20} /></a>
+            <a href="#" className="hover:text-primary"><FiInstagram size={20} /></a>
+            <a href="#" className="hover:text-primary"><FiLinkedin size={20} /></a>
+          </div>
         </div>
       </div>
-    </footer>
-  )
-}
 
-export default Footer
+      <div className="border-t border-gray-700 mt-8 pt-4 text-center text-sm text-gray-400">
+        © {new Date().getFullYear()} Premium Serviços. Todos os direitos reservados.
+      </div>
+    </footer>
+  );
+};
+
+export default Footer;

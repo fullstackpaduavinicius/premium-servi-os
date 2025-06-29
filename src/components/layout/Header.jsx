@@ -13,7 +13,7 @@ const Header = () => {
 
   useEffect(() => {
     const unsubscribe = scrollY.on('change', (latest) => {
-      setIsScrolled(latest > 5); // ativa após pequeno scroll
+      setIsScrolled(latest > 5);
     });
     return () => unsubscribe();
   }, [scrollY]);
@@ -64,13 +64,13 @@ const Header = () => {
     <header
       className={`fixed w-full z-50 transition-all duration-300 ease-in-out ${
         isScrolled
-          ? 'bg-white shadow-md top-0 py-2'
-          : 'bg-white/80 backdrop-blur-md top-6 py-4'
+          ? 'bg-white shadow-md top-0 py-2'  // Fundo branco com scroll
+          : 'bg-transparent top-6 py-4'      // Transparente no topo
       }`}
     >
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between">
-          {/* Logo */}
+          {/* Logo (cor original sempre) */}
           <a href="/" className="flex items-center">
             <img
               src={logo}
@@ -89,25 +89,37 @@ const Header = () => {
                       onClick={() => toggleDropdown(link.id)}
                       className={`px-4 py-5 font-medium uppercase text-sm flex items-center ${
                         activeLink === link.id
-                          ? 'text-primary'
-                          : 'text-gray-800 hover:text-primary'
+                          ? isScrolled
+                            ? 'text-gray-900'  // Preto com scroll
+                            : 'text-white'     // Branco no topo
+                          : isScrolled
+                          ? 'text-gray-900 hover:text-gray-900'  // Preto com scroll
+                          : 'text-white hover:text-white'        // Branco no topo
                       }`}
                     >
                       {link.name}
                       <FiChevronDown
                         className={`ml-1 transition-transform ${
                           openDropdown === link.id ? 'rotate-180' : ''
-                        }`}
+                        } ${isScrolled ? 'text-gray-900' : 'text-white'}`}
                       />
                     </button>
 
                     {openDropdown === link.id && (
-                      <div className="absolute left-0 top-full mt-0 w-56 bg-white shadow-lg rounded-b-lg z-50">
+                      <div
+                        className={`absolute left-0 top-full mt-0 w-56 shadow-lg rounded-b-lg z-50 ${
+                          isScrolled ? 'bg-white' : 'bg-gray-800'  // Fundo branco ou cinza escuro
+                        }`}
+                      >
                         {link.subItems.map((subItem) => (
                           <a
                             key={subItem.name}
                             href={subItem.path}
-                            className="block px-4 py-3 text-sm text-gray-700 hover:bg-gray-50 hover:text-primary border-b border-gray-100 last:border-0"
+                            className={`block px-4 py-3 text-sm ${
+                              isScrolled
+                                ? 'text-gray-700 hover:bg-gray-100'  // Cinza escuro com scroll
+                                : 'text-white hover:bg-gray-700'     // Branco no topo
+                            } border-b border-gray-200 last:border-0`}
                             onClick={() => setOpenDropdown(null)}
                           >
                             {subItem.name}
@@ -121,8 +133,12 @@ const Header = () => {
                     href={link.path}
                     className={`px-4 py-5 font-medium uppercase text-sm ${
                       activeLink === link.id
-                        ? 'text-primary'
-                        : 'text-gray-800 hover:text-primary'
+                        ? isScrolled
+                          ? 'text-gray-900'  // Preto com scroll
+                          : 'text-white'     // Branco no topo
+                        : isScrolled
+                        ? 'text-gray-900 hover:text-gray-900'  // Preto com scroll
+                        : 'text-white hover:text-white'        // Branco no topo
                     }`}
                     onClick={() => setActiveLink(link.id)}
                   >
@@ -136,7 +152,9 @@ const Header = () => {
           {/* Mobile Menu Button */}
           <button
             onClick={() => setIsMenuOpen(!isMenuOpen)}
-            className="lg:hidden text-gray-700 hover:text-primary"
+            className={`lg:hidden ${
+              isScrolled ? 'text-gray-900' : 'text-white'
+            } hover:opacity-80`}
           >
             {isMenuOpen ? <FiX size={24} /> : <FiMenu size={24} />}
           </button>
@@ -145,7 +163,11 @@ const Header = () => {
 
       {/* Mobile Menu */}
       {isMenuOpen && (
-        <div className="lg:hidden bg-white shadow-lg">
+        <div
+          className={`lg:hidden shadow-lg ${
+            isScrolled ? 'bg-white' : 'bg-gray-800'
+          }`}
+        >
           <div className="container mx-auto px-4 py-4">
             <nav className="flex flex-col space-y-2">
               {navLinks.map((link) => (
@@ -155,14 +177,14 @@ const Header = () => {
                       <button
                         onClick={() => toggleDropdown(link.id)}
                         className={`w-full flex justify-between items-center px-3 py-3 font-medium uppercase text-sm ${
-                          activeLink === link.id ? 'text-primary' : 'text-gray-800'
+                          isScrolled ? 'text-gray-900' : 'text-white'
                         }`}
                       >
                         {link.name}
                         <FiChevronDown
                           className={`transition-transform ${
                             openDropdown === link.id ? 'rotate-180' : ''
-                          }`}
+                          } ${isScrolled ? 'text-gray-900' : 'text-white'}`}
                         />
                       </button>
 
@@ -172,7 +194,11 @@ const Header = () => {
                             <a
                               key={subItem.name}
                               href={subItem.path}
-                              className="block px-3 py-2 text-sm text-gray-600 hover:text-primary"
+                              className={`block px-3 py-2 text-sm ${
+                                isScrolled
+                                  ? 'text-gray-700 hover:bg-gray-100'
+                                  : 'text-white hover:bg-gray-700'
+                              }`}
                               onClick={() => setIsMenuOpen(false)}
                             >
                               {subItem.name}
@@ -185,7 +211,7 @@ const Header = () => {
                     <a
                       href={link.path}
                       className={`block px-3 py-3 font-medium uppercase text-sm ${
-                        activeLink === link.id ? 'text-primary' : 'text-gray-800'
+                        isScrolled ? 'text-gray-900' : 'text-white'
                       }`}
                       onClick={() => {
                         setActiveLink(link.id);
