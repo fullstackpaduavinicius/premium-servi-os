@@ -47,19 +47,12 @@ const AboutSection = () => {
     },
   ];
 
-  const stats = [
-    { value: "100+", label: "Clientes Atendidos" },
-    { value: "500+", label: "Profissionais" },
-    { value: "15+", label: "Anos de Experiência" },
-    { value: "24/7", label: "Disponibilidade" },
-  ];
-
   return (
     <section className="py-20 section-alt" id="sobre">
       <div className="container mx-auto px-4">
 
         {/* 🔥 Destaques com imagem no topo */}
-        <div className="grid md:grid-cols-3 gap-8 mb-16">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
           {highlightCards.map((card, index) => (
             <div
               key={index}
@@ -89,26 +82,21 @@ const AboutSection = () => {
         </div>
 
         {/* Conteúdo textual */}
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <div>
             <h2 className="text-3xl md:text-4xl font-bold text-primary mb-6">
-              Sobre a <span className="text-secondary">Premium Empreendimentos</span>
+              Sobre a <span className="text-secondary">Premium Serviços</span>
             </h2>
             <p className="text-lg text-secondary mb-6">
-              A <strong>Premium Empreendimentos</strong> é especializada em terceirização de mão de obra, 
-              oferecendo soluções completas em <strong>limpeza</strong>, <strong>conservação</strong>, 
-              <strong>coleta de resíduos</strong> e <strong>construção civil</strong>.
+              A <strong>Premium Serviços</strong> é uma empresa especializada na prestação de serviços essenciais para ambientes públicos e privados. Com uma trajetória pautada pela excelência, responsabilidade e comprometimento, oferecemos soluções completas nas áreas de <strong>limpeza e conservação hospitalar</strong>, <strong>locação de máquinas e veículos</strong>, <strong>terceirização de mão de obra</strong>, <strong>gestão de resíduos</strong> e <strong>construção civil</strong>.
             </p>
-            <p className="text-lg text-secondary mb-8">
-              Atuamos com excelência em ambientes corporativos, industriais e públicos, com foco em qualidade, eficiência e sustentabilidade.
+            <p className="text-lg text-secondary">
+              Nosso diferencial está na formação contínua das equipes, no uso de tecnologias e processos modernos, e no compromisso com a sustentabilidade. Atuamos com seriedade, ética e foco nos resultados, garantindo confiança, segurança e agilidade aos nossos clientes em cada projeto executado.
             </p>
-            <a href="/about" className="btn-primary px-8 py-3 rounded-lg font-semibold inline-block">
-              Saiba Mais Sobre Nós
-            </a>
           </div>
 
           {/* Blocos de serviços */}
-          <div className="grid md:grid-cols-2 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {services.map((service, index) => (
               <div
                 key={index}
@@ -126,24 +114,12 @@ const AboutSection = () => {
           </div>
         </div>
 
-        {/* Estatísticas */}
-        <div className="mt-20 bg-primary text-white rounded-xl p-8 shadow-lg">
-          <div className="grid md:grid-cols-4 gap-6 text-center">
-            {stats.map((stat, index) => (
-              <div key={index} className="p-4">
-                <p className="text-4xl font-bold mb-2">{stat.value}</p>
-                <p className="text-lg">{stat.label}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-
         {/* Diferenciais */}
         <div className="mt-20">
           <h3 className="text-2xl font-bold text-center text-secondary mb-12">
             Nossos <span className="text-primary">Diferenciais</span>
           </h3>
-          <div className="grid md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <div className="bg-white p-6 rounded-lg shadow-md text-center hover:shadow-lg transition-shadow">
               <FiAward className="text-4xl text-primary mx-auto mb-4" />
               <h4 className="text-xl font-semibold mb-3">Qualidade Garantida</h4>

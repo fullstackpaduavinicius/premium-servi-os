@@ -2,7 +2,7 @@ import { motion } from 'framer-motion'
 import { useInView } from 'react-intersection-observer'
 import HeroSection from '../components/sections/HeroSection'
 import AboutSection from '../components/sections/AboutSection'
-import ServicesSection from '../components/sections/ServicesSection'
+import WhatsappFloatingButton from '../components/sections/WhatsappFloatingButton'  // import atualizado
 
 const Home = () => {
   const [ref, inView] = useInView({
@@ -23,7 +23,8 @@ const Home = () => {
         <AboutSection />
       </motion.div>
       
-      <ServicesSection />
+      {/* Botão flutuante WhatsApp */}
+      <WhatsappFloatingButton />
     </div>
   )
 }
