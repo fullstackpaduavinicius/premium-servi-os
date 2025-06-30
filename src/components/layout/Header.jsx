@@ -35,7 +35,7 @@ const Header = () => {
       path: '/negocios',
       id: 'negocios',
       subItems: [
-        { name: 'MultSEG - Segurança', path: '/negocios/seguranca' },
+        { name: 'Premium Serviços', path: '/negocios/seguranca' },
         { name: 'Atendimento e Sustentabilidade', path: '/negocios/sustentabilidade' },
       ],
     },
