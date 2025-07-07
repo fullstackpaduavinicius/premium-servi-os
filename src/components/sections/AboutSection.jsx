@@ -61,7 +61,7 @@ const AboutSection = () => {
               <img
                 src={card.image}
                 alt={card.title}
-                className="w-full h-48 object-cover"
+                className="w-full h-48 object-cover rounded-t-lg opacity-100 filter-none"
               />
               <div className="p-6 flex flex-col justify-between h-[200px]">
                 <div>
@@ -88,10 +88,10 @@ const AboutSection = () => {
               Sobre a <span className="text-secondary">Premium Serviços</span>
             </h2>
             <p className="text-lg text-secondary mb-6">
-              A <strong>Premium Serviços</strong> é uma empresa especializada na prestação de serviços essenciais para ambientes públicos e privados. Com uma trajetória pautada pela excelência, responsabilidade e comprometimento, oferecemos soluções completas nas áreas de <strong>limpeza e conservação hospitalar</strong>, <strong>locação de máquinas e veículos</strong>, <strong>terceirização de mão de obra</strong>, <strong>gestão de resíduos</strong> e <strong>construção civil</strong>.
+              A <strong>Premium Serviços</strong> é uma empresa especializada na prestação de serviços essenciais para ambientes públicos e privados. Com uma trajetória pautada pela excelência, responsabilidade e comprometimento, oferecemos soluções completas nas áreas de <strong>Limpeza e conservação predial</strong>, <strong>Limpeza hospitalar</strong>, <strong>Terceirização de mão de obra</strong> (incluindo gerenciamento de pessoas, áreas técnica e analítica, atividades de apoio administrativo, recepção e portaria), <strong>Serviços de limpeza e coleta de resíduos</strong>, <strong>Construção civil</strong> e <strong>Locação de máquinas e veículos</strong>.
             </p>
             <p className="text-lg text-secondary">
-              Nosso diferencial está na formação contínua das equipes, no uso de tecnologias e processos modernos, e no compromisso com a sustentabilidade. Atuamos com seriedade, ética e foco nos resultados, garantindo confiança, segurança e agilidade aos nossos clientes em cada projeto executado.
+              Com <strong>mais de 17 anos de experiência</strong> no mercado, levamos confiança e profissionalismo a serviço de empresas públicas e privadas. Nosso compromisso vai além da prestação de serviços - buscamos estabelecer parcerias duradouras baseadas em qualidade, eficiência e atendimento personalizado às necessidades de cada cliente.
             </p>
           </div>
 
