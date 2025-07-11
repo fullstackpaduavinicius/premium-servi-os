@@ -40,11 +40,7 @@ const Header = () => {
 
   return (
     <header
-      className={`fixed w-full z-50 transition-all duration-300 ease-in-out ${
-        isScrolled || location.pathname !== '/'
-          ? 'bg-white shadow-md top-0 py-2'
-          : 'bg-transparent top-6 py-4'
-      }`}
+      className={`fixed w-full z-50 transition-all duration-300 ease-in-out bg-white shadow-md top-0 py-2`}
     >
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between">
@@ -53,9 +49,7 @@ const Header = () => {
             <img
               src={logo}
               alt="Logo da Empresa"
-              className={`h-12 md:h-16 object-contain transition-all duration-300 ${
-                isScrolled || location.pathname !== '/' ? '' : 'brightness-0 invert'
-              }`}
+              className={`h-16 md:h-20 object-contain transition-all duration-300`}
             />
           </a>
 
@@ -67,12 +61,8 @@ const Header = () => {
                 href={link.path}
                 className={`px-4 py-5 font-medium uppercase text-sm ${
                   location.pathname === link.path
-                    ? isScrolled || location.pathname !== '/'
-                      ? 'text-primary'
-                      : 'text-primary'
-                    : isScrolled || location.pathname !== '/'
-                    ? 'text-gray-900 hover:text-primary'
-                    : 'text-white hover:text-primary'
+                    ? 'text-primary'
+                    : 'text-gray-900 hover:text-primary'
                 }`}
               >
                 {link.name}
@@ -83,9 +73,7 @@ const Header = () => {
           {/* Mobile Menu Button */}
           <button
             onClick={() => setIsMenuOpen(!isMenuOpen)}
-            className={`lg:hidden ${
-              isScrolled || location.pathname !== '/' ? 'text-gray-900' : 'text-white'
-            } hover:opacity-80`}
+            className={`lg:hidden text-gray-900 hover:opacity-80`}
           >
             {isMenuOpen ? <FiX size={24} /> : <FiMenu size={24} />}
           </button>
@@ -94,22 +82,16 @@ const Header = () => {
 
       {/* Mobile Menu */}
       {isMenuOpen && (
-        <div
-          className={`lg:hidden shadow-lg ${
-            isScrolled || location.pathname !== '/' ? 'bg-white' : 'bg-gray-800'
-          }`}
-        >
+        <div className={`lg:hidden shadow-lg bg-white`}>
           <div className="container mx-auto px-4 py-4">
             <nav className="flex flex-col space-y-2">
               {navLinks.map((link) => (
                 <a
                   key={link.id}
                   href={link.path}
-                  className={`block px-3 py-3 font-medium uppercase text-sm ${
-                    isScrolled || location.pathname !== '/'
-                      ? 'text-gray-900 hover:text-primary'
-                      : 'text-white hover:text-primary'
-                  } ${location.pathname === link.path ? 'text-primary' : ''}`}
+                  className={`block px-3 py-3 font-medium uppercase text-sm text-gray-900 hover:text-primary ${
+                    location.pathname === link.path ? 'text-primary' : ''
+                  }`}
                   onClick={() => {
                     setIsMenuOpen(false);
                   }}
