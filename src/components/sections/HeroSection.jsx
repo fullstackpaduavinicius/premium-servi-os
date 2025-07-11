@@ -81,112 +81,118 @@ const HeroSection = () => {
   const handleAnimationComplete = () => setIsAnimating(false);
 
   return (
-    <section className="relative h-[calc(100vh-80px)] lg:h-[calc(100vh-104px)] mt-[80px] lg:mt-[104px] overflow-hidden">
-      <div className="relative w-full h-full">
-        <AnimatePresence
-          custom={direction}
-          initial={false}
-          onExitComplete={handleAnimationComplete}
-        >
-          <motion.div
-            key={currentIndex}
+    <>
+      {/* Seção Hero principal - Ajustada com z-index e margin-top */}
+      <section className="relative w-full h-[calc(100vh-80px)] lg:h-[calc(100vh-104px)] overflow-hidden" style={{
+        marginTop: '80px', // Altura do header mobile
+        zIndex: 10 // Garante que fique acima de outros elementos
+      }}>
+        <div className="relative w-full h-full">
+          <AnimatePresence
             custom={direction}
-            variants={variants}
-            initial="enter"
-            animate="center"
-            exit="exit"
-            transition={{
-              x: { type: 'spring', stiffness: 400, damping: 30 },
-              opacity: { duration: 0.4 }
-            }}
-            className="relative w-full h-full"
+            initial={false}
+            onExitComplete={handleAnimationComplete}
           >
-            <img
-              src={banners[currentIndex]}
-              alt={`Banner ${currentIndex + 1}`}
-              className="w-full h-full object-cover"
-              loading="eager"
-            />
+            <motion.div
+              key={currentIndex}
+              custom={direction}
+              variants={variants}
+              initial="enter"
+              animate="center"
+              exit="exit"
+              transition={{
+                x: { type: 'spring', stiffness: 400, damping: 30 },
+                opacity: { duration: 0.4 }
+              }}
+              className="relative w-full h-full"
+            >
+              <img
+                src={banners[currentIndex]}
+                alt={`Banner ${currentIndex + 1}`}
+                className="w-full h-full object-cover"
+                loading="eager"
+              />
 
-            <div className="absolute inset-0 flex items-center">
-              <div className="container mx-auto px-4 sm:px-6 md:px-8">
-                <motion.div
-                  initial={{ y: 50, opacity: 0 }}
-                  animate={{ y: 0, opacity: 1 }}
-                  transition={{ delay: 0.3, duration: 0.5 }}
-                  className="max-w-[90%] sm:max-w-xl"
-                >
-                  <h1 
-                    className="text-white text-lg sm:text-3xl md:text-5xl font-bold mb-3 sm:mb-4 leading-tight"
-                    style={{
-                      textShadow: '2px 2px 4px rgba(0, 0, 0, 0.8), -2px -2px 4px rgba(0, 0, 0, 0.8)'
-                    }}
+              <div className="absolute inset-0 flex items-center bg-black/30">
+                <div className="container mx-auto px-4 sm:px-6 md:px-8">
+                  <motion.div
+                    initial={{ y: 50, opacity: 0 }}
+                    animate={{ y: 0, opacity: 1 }}
+                    transition={{ delay: 0.3, duration: 0.5 }}
+                    className="max-w-[90%] sm:max-w-xl"
                   >
-                    {slideContent[currentIndex].title}
-                  </h1>
-                  <p 
-                    className="text-white text-xs sm:text-lg md:text-2xl mb-4 sm:mb-6 md:mb-8"
-                    style={{
-                      textShadow: '1px 1px 3px rgba(0, 0, 0, 0.8), -1px -1px 3px rgba(0, 0, 0, 0.8)'
-                    }}
-                  >
-                    {slideContent[currentIndex].subtitle}
-                  </p>
-                  <motion.button
-                    whileHover={{ scale: 1.05 }}
-                    whileTap={{ scale: 0.95 }}
-                    className="bg-primary hover:bg-primary-dark text-white px-3 py-1 sm:px-6 sm:py-3 md:px-8 md:py-4 rounded-lg font-semibold transition-colors text-xs sm:text-base md:text-lg"
-                    style={{
-                      textShadow: '1px 1px 2px rgba(0, 0, 0, 0.5)'
-                    }}
-                  >
-                    {slideContent[currentIndex].cta}
-                  </motion.button>
-                </motion.div>
+                    <h1 
+                      className="text-white text-lg sm:text-3xl md:text-5xl font-bold mb-3 sm:mb-4 leading-tight"
+                      style={{
+                        textShadow: '2px 2px 4px rgba(0, 0, 0, 0.8), -2px -2px 4px rgba(0, 0, 0, 0.8)'
+                      }}
+                    >
+                      {slideContent[currentIndex].title}
+                    </h1>
+                    <p 
+                      className="text-white text-xs sm:text-lg md:text-2xl mb-4 sm:mb-6 md:mb-8"
+                      style={{
+                        textShadow: '1px 1px 3px rgba(0, 0, 0, 0.8), -1px -1px 3px rgba(0, 0, 0, 0.8)'
+                      }}
+                    >
+                      {slideContent[currentIndex].subtitle}
+                    </p>
+                    <motion.button
+                      whileHover={{ scale: 1.05 }}
+                      whileTap={{ scale: 0.95 }}
+                      className="bg-primary hover:bg-primary-dark text-white px-3 py-1 sm:px-6 sm:py-3 md:px-8 md:py-4 rounded-lg font-semibold transition-colors text-xs sm:text-base md:text-lg"
+                      style={{
+                        textShadow: '1px 1px 2px rgba(0, 0, 0, 0.5)'
+                      }}
+                    >
+                      {slideContent[currentIndex].cta}
+                    </motion.button>
+                  </motion.div>
+                </div>
               </div>
-            </div>
-          </motion.div>
-        </AnimatePresence>
-      </div>
+            </motion.div>
+          </AnimatePresence>
+        </div>
 
-      {/* Botões de navegação */}
-      <button
-        onClick={goToPrev}
-        disabled={isAnimating}
-        className="absolute left-2 sm:left-4 top-1/2 -translate-y-1/2 bg-black bg-opacity-50 text-white p-2 rounded-full hover:bg-opacity-70 transition-all z-10"
-        aria-label="Slide anterior"
-      >
-        <FiChevronLeft className="text-xl sm:text-2xl" />
-      </button>
+        {/* Botões de navegação */}
+        <button
+          onClick={goToPrev}
+          disabled={isAnimating}
+          className="absolute left-2 sm:left-4 top-1/2 -translate-y-1/2 bg-black bg-opacity-50 text-white p-2 rounded-full hover:bg-opacity-70 transition-all z-20"
+          aria-label="Slide anterior"
+        >
+          <FiChevronLeft className="text-xl sm:text-2xl" />
+        </button>
 
-      <button
-        onClick={goToNext}
-        disabled={isAnimating}
-        className="absolute right-2 sm:right-4 top-1/2 -translate-y-1/2 bg-black bg-opacity-50 text-white p-2 rounded-full hover:bg-opacity-70 transition-all z-10"
-        aria-label="Próximo slide"
-      >
-        <FiChevronRight className="text-xl sm:text-2xl" />
-      </button>
+        <button
+          onClick={goToNext}
+          disabled={isAnimating}
+          className="absolute right-2 sm:right-4 top-1/2 -translate-y-1/2 bg-black bg-opacity-50 text-white p-2 rounded-full hover:bg-opacity-70 transition-all z-20"
+          aria-label="Próximo slide"
+        >
+          <FiChevronRight className="text-xl sm:text-2xl" />
+        </button>
 
-      {/* Indicadores */}
-      <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex space-x-2 z-10">
-        {banners.map((_, index) => (
-          <button
-            key={index}
-            onClick={() => {
-              if (isAnimating) return;
-              setDirection(index > currentIndex ? 1 : -1);
-              setCurrentIndex(index);
-            }}
-            disabled={isAnimating}
-            className={`w-2 h-2 sm:w-3 sm:h-3 rounded-full transition-all ${
-              index === currentIndex ? 'bg-primary w-4 sm:w-6' : 'bg-white bg-opacity-50'
-            } ${isAnimating ? 'opacity-50' : ''}`}
-            aria-label={`Ir para slide ${index + 1}`}
-          />
-        ))}
-      </div>
-    </section>
+        {/* Indicadores */}
+        <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex space-x-2 z-20">
+          {banners.map((_, index) => (
+            <button
+              key={index}
+              onClick={() => {
+                if (isAnimating) return;
+                setDirection(index > currentIndex ? 1 : -1);
+                setCurrentIndex(index);
+              }}
+              disabled={isAnimating}
+              className={`w-2 h-2 sm:w-3 sm:h-3 rounded-full transition-all ${
+                index === currentIndex ? 'bg-primary w-4 sm:w-6' : 'bg-white bg-opacity-50'
+              } ${isAnimating ? 'opacity-50' : ''}`}
+              aria-label={`Ir para slide ${index + 1}`}
+            />
+          ))}
+        </div>
+      </section>
+    </>
   );
 };
 
