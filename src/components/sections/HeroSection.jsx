@@ -81,7 +81,7 @@ const HeroSection = () => {
   const handleAnimationComplete = () => setIsAnimating(false);
 
   return (
-    <section className="relative h-[calc(100vh-80px)] md:h-[calc(100vh-104px)] overflow-hidden">
+    <section className="relative h-[calc(100vh-80px)] lg:h-[calc(100vh-104px)] mt-[80px] lg:mt-[104px] overflow-hidden">
       <div className="relative w-full h-full">
         <AnimatePresence
           custom={direction}
