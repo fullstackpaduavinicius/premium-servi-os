@@ -8,8 +8,8 @@ import cliente3 from '/src/assets/imagens/cliente3.jpeg';
 import cliente4 from '/src/assets/imagens/cliente4.jpeg';
 import cliente5 from '/src/assets/imagens/cliente5.jpeg';
 import cliente6 from '/src/assets/imagens/cliente6.jpeg';
-import cliente7 from '/src/assets/imagens/cliente7.jpeg';
-import cliente8 from '/src/assets/imagens/cliente8.jpeg';
+//import cliente7 from '/src/assets/imagens/cliente7.jpeg';
+//import cliente8 from '/src/assets/imagens/cliente8.jpeg';
 import cliente9 from '/src/assets/imagens/cliente9.jpeg';
 import cliente10 from '/src/assets/imagens/cliente10.jpeg';
 import cliente11 from '/src/assets/imagens/cliente11.jpeg';
@@ -25,8 +25,8 @@ const Clientes = () => {
     { src: cliente4, alt: 'Cliente 4' },
     { src: cliente5, alt: 'Cliente 5' },
     { src: cliente6, alt: 'Cliente 6' },
-    { src: cliente7, alt: 'Cliente 7' },
-    { src: cliente8, alt: 'Cliente 8' },
+    //{ src: cliente7, alt: 'Cliente 7' },
+    //{ src: cliente8, alt: 'Cliente 8' },
     { src: cliente9, alt: 'Cliente 9' },
     { src: cliente10, alt: 'Cliente 10' },
     { src: cliente11, alt: 'Cliente 11' }
